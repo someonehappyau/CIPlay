@@ -11,4 +11,4 @@ COPY . /usr/src/app
 
 EXPOSE 3002
 
-CMD ['npm','start']
+CMD ["npm","start"]
