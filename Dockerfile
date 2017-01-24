@@ -15,4 +15,3 @@ RUN ln -s /mnt/data/ci_play/ ./data
 EXPOSE 3002
 
 CMD ["npm","start"]
-
