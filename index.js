@@ -6,7 +6,7 @@ var express=require('express');
 var app=express();
 
 app.get('/', (req, res)=>{
-    res.status(200).end('Hello CI world.\nIt\'s a nice day!');
+    res.status(200).end('Hello CI world.\nIt\'s a nice day!\nHey!');
 });
 
 app.listen('3002');
