@@ -6,7 +6,7 @@ var express=require('express');
 var app=express();
 
 app.get('/', (req, res)=>{
-    res.status(200).end('Hello CI world.\nIt\'s a nice day!\nHey!');
+    res.status(200).end('Hello CI world.\nIt\'s a nice day!\nHey!\It\' automatically build and updated by Jenkins and Docker!\n\nFantastic!');
 });
 
 app.listen('3002');
