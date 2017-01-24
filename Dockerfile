@@ -9,6 +9,11 @@ RUN npm install
 
 COPY . /usr/src/app
 
+ln -s /mnt/data/ci_play/ ./data
+
 EXPOSE 3002
+
+id -u -n
+id -u
 
 CMD ["npm","start"]
