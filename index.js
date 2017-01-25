@@ -36,7 +36,7 @@ app.post('/record', function(req, res){
 
     connection.query('insert into ?? set ?',['record',{content:req.body.info}], function(err, result){
         if (err){
-            res.status(500).end(err);
+            res.status(500).end(JSON.stringify(err));
         }
         else{
             res.redirect('/');
