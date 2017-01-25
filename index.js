@@ -9,13 +9,15 @@ var moment=require('moment');
 var shell=require('shelljs');
 
 var mysql      = require('mysql');
-var connection = mysql.createConnection({
-    host     : 'mysql',
-    user     : 'usertest',
-    password : 'iamtester',
-    database : 'test'
-});
 
+function getConnection() {
+    return mysql.createConnection({
+        host: 'mysql',
+        user: 'usertest',
+        password: 'iamtester',
+        database: 'test'
+    });
+}
 
 var DATA_PATH=path.join(__dirname,'data/records');
 
@@ -31,6 +33,8 @@ app.post('/record', function(req, res){
     var now=Date.now();
     var fileName=moment().format('YYYYMMDDHHmmsszzzSSS')+'.txt';
     fs.writeFileSync(path.join(DATA_PATH, fileName), req.body.info);
+
+    var connection=getConnection();
 
     connection.connect();
 
@@ -48,6 +52,9 @@ app.post('/record', function(req, res){
 
 app.get('/records', function(req, res){
     console.log('records.');
+
+    var connection=getConnection();
+    
     connection.connect();
     connection.query('select * from record', function(err, result){
         if (err){
