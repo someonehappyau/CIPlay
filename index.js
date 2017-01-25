@@ -41,7 +41,7 @@ app.post('/record', function(req, res){
         else{
             res.redirect('/');
         }
-        connection.close();
+        connection.end();
     });
 
 });
@@ -61,7 +61,7 @@ app.get('/records', function(req, res){
             html+='</ul>';
             res.status(200).end(html);
         }
-        connection.close();
+        connection.end();
     })
 });
 
