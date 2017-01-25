@@ -54,18 +54,18 @@ app.get('/records', function(req, res){
     console.log('records.');
 
     var connection=getConnection();
-    
+
     connection.connect();
     connection.query('select * from record', function(err, result){
         if (err){
             res.status(500).end();
         }
         else{
-            var html='<ul>';
+            var html='<html><body><ul>';
             result.forEach(function(data){
                 html+='<li>'+data.id+'\t'+data.content+'\t'+moment(data.date_created).format('YYYY-MM-DD HH:mm:ss')+'</li>';
             });
-            html+='</ul>';
+            html+='</ul></body></html>';
             res.status(200).end(html);
         }
         connection.end();
