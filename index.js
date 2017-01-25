@@ -47,6 +47,7 @@ app.post('/record', function(req, res){
 });
 
 app.get('/records', function(req, res){
+    console.log('records.');
     connection.connect();
     connection.query('select * from record', function(err, result){
         if (err){
@@ -62,7 +63,7 @@ app.get('/records', function(req, res){
         }
         connection.close();
     })
-})
+});
 
 app.use(express.static(path.join(__dirname,'public')));
 app.listen('3002');
